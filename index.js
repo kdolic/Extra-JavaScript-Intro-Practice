@@ -600,6 +600,21 @@ const dollarsToEuros = usd => usd * .85;
 // 1 usd === 1.66 Bulgarian Lev 
 // 1 usd === 27.7 Ukrainian hryvnia */
 
+const countryConversionRate = {
+  'Germany': [.85, 'euro'],
+  'Britain': [.77, 'British Pounds'],
+  'Turkey': [6.96, 'Turkish Lira'],
+  'Bulgaria': [1.66, 'Bulgarian Lev'],
+  'Ukraine': [27.7, 'Ukrainian hryvnia']
+}
+
+function moneyExchange(dollarAmount, country){
+  const exchangeRate = countryConversionRate[country][0];
+  const currencyInitals = countryConversionRate[country][1];
+  return `your exchange rate for ${dollarAmount} dollars in ${country} will be ${exchangeRate} ${currencyInitals}`
+
+  // or else return 'that country is not on your list'
+}
 
 /*TASK 3 🚀
 /// Write a function that takes an airport code and returns the city, country of that airport 
