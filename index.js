@@ -604,28 +604,76 @@ const dollarsToEuros = usd => usd * .85;
 /*TASK 3 🚀
 /// Write a function that takes an airport code and returns the city, country of that airport 
 // find the following codes AAA, ABZ, ABX, ABT, ACA */
+function airportCode(code){
+  for(let i = 0; i < airports.length; i++){
+    if(airports[i]['code'] === code){
+      return `${airports[i].city}, ${airports[i].country}`;
+    }
+  }
+}
 
+//console.log(airportCode("ACA"));
 
 /*TASK 4 🚀 
 // Write a function to that will find the phone number for an airport in a given city  */
+function airportPhone(givenCity){
+  for(let i =0; i < airports.length; i++){
+    if(airports[i]['city'] === givenCity){
+      return airports[i].phone;
+    }
+  }
+}
 
-
+//console.log(airportPhone("Acapulco"));
 
 /*TASK 5 🚀 
 // Write a function that will return all the airports in a given country  */
+function allAirports(givenCountry){
+  let countryAirports = [];
+  for(let i = 0; i < airports.length; i++){
+    if(airports[i]['country'] === givenCountry){
+      countryAirports.push(airports[i].name);
+    }
+  }
+  return countryAirports;
+}
 
-
+//console.log(allAirports("United States"));
 
 /*TASK 6 🚀 
 // Write a function that takes and airport name and returns the airport code
 // find the code for the following airports: Al Baha Airport, Ambler Airport, Abuja International Airport*/
+function airportCodeFinder(name){
+  for(i = 0; i <airports.length; i++){
+    if(airports[i]['name'] === name){
+      return airports[i]['code'];
+    }
+  }
+}
 
+//console.log(airportCodeFinder("Al Baha Airport"));
 
 
 /*TASK 7 🚀
 // Write a function that takes an airport code and returns the number of direct flights available */
+function airportDirectFlights(code){
+  for(let i = 0; i < airports.length; i++){
+    if(airports[i]['code'] === code){
+      return airports[i]['direct_flights'];
+    }
+  }
+}
 
-
+//console.log(airportDirectFlights("ACA"));
 
 /*TASK 8 🚀
 // Find out what your flight options are - write a function that returns a new array of all the country names in a set of data*/
+function airportFlightOptions(){
+  let options = [];
+  for(let i = 0; i < airports.length; i++){
+      options.push(airports[i].country);
+  }
+  return options;
+}
+
+//console.log(airportFlightOptions());
